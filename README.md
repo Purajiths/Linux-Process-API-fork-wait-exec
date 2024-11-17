@@ -1,128 +1,80 @@
-# Linux-Process-API-fork-wait-exec-
-Ex02-Linux Process API-fork(), wait(), exec()
-# Ex02-OS-Linux-Process API - fork(), wait(), exec()
-Operating systems Lab exercise
+# T-FLIPFLOP-POSEDGE
+### DEVELOPED BY:sri hari R
+### REG NO:212223040202
 
 
-# AIM:
-To write C Program that uses Linux Process API - fork(), wait(), exec()
+## AIM:
 
-# DESIGN STEPS:
+To implement  T flipflop using verilog and validating their functionality using their functional tables
 
-### Step 1:
+## SOFTWARE REQUIRED:
 
-Navigate to any Linux environment installed on the system or installed inside a virtual environment like virtual box/vmware or online linux JSLinux (https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192) or docker.
+Quartus prime
 
-### Step 2:
+## THEORY:
 
-Write the C Program using Linux Process API - fork(), wait(), exec()
+## T Flip-Flop:
 
-### Step 3:
+T flip-flop is the simplified version of JK flip-flop. It is obtained by connecting the same input ‘T’ to both inputs of JK flip-flop. It operates with only positive clock transitions or negative clock transitions. The circuit diagram of T flip-flop is shown in the following figure.
 
-Test the C Program for the desired output. 
+![image](https://github.com/naavaneetha/T-FLIPFLOP-POSEDGE/assets/154305477/458a68fe-2d08-4a9d-ac4f-7ae0480ce0bd)
 
-# PROGRAM:
+ 
+This circuit has single input T and two outputs Qtt & Qtt’. The operation of T flip-flop is same as that of JK flip-flop. Here, we considered the inputs of JK flip-flop as J = T and K = T in order to utilize the modified JK flip-flop for 2 combinations of inputs. So, we eliminated the other two combinations of J & K, for which those two values are complement to each other in T flip-flop. The following table shows the state table of T flip-flop.
 
-## C Program to print process ID and parent Process ID using Linux API system calls
+Here, Qtt & Qt+1t+1 are present state & next state respectively. So, T flip-flop can be used for one of these two functions such as Hold, & Complement of present state based on the input conditions, when positive transition of clock signal is applied. The following table shows the characteristic table of T flip-flop. Inputs Present State Next State
 
+![image](https://github.com/naavaneetha/T-FLIPFLOP-POSEDGE/assets/154305477/cdd7fb32-539f-4b66-bb8d-f305a153c886)
 
+ 
+From the above characteristic table, we can directly write the next state equation as Q(t+1)=T′Q(t)+TQ(t)′ ⇒Q(t+1)=T⊕Q(t)
 
+## Procedure:
 
+```
+Step 1: Open Quartus II in your laptop.
 
+Step 2: Write code to implement SR flipflop using verilog and validating their functionality using their functional tables.
 
+Step 3: Run compilation to check for errors.
 
+Step 4: Open waveform output and load input values.
 
+Step 5: Run simulation to get the output.
 
+Step 6: Open in RTL viewers to get RTL diagram output.
+```
 
+## PROGRAM:
 
+Program for flipflops and verify its truth table in quartus using Verilog programming. 
+```
+module TFLIPFLOPPOSEDGE( input clk, rst_n, input t,
+output reg q,
+output q_bar
+);
+always@(posedge clk) 
+begin 
+if(!rst_n)
+q<=0;
+else
+if(t)
+q<=~q;
+else
+q<=q;
+end
+assign q_bar = ~q;
+endmodule
+```
 
 
+## RTL LOGIC FOR FLIPFLOPS:
+![325183738-7899a3ad-8f6f-4d52-b2e8-854bea3d276a](https://github.com/Keerthana-VJ/T-FLIPFLOP-POSEDGE/assets/149347704/38fdb0ec-3088-42dc-aa58-8129c2dd884e)
 
 
+## TIMING DIGRAMS FOR FLIP FLOPS:
+![325183758-c934697c-4e75-4bfa-957b-869da297711d](https://github.com/Keerthana-VJ/T-FLIPFLOP-POSEDGE/assets/149347704/b8e99f78-214a-42a4-9aca-793c66926454)
 
-##OUTPUT
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-## C Program to create new process using Linux API system calls fork() and exit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-##OUTPUT
-
-
-
-
-
-
-
-
-## C Program to execute Linux system commands using Linux API system calls exec() family
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##OUTPUT
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# RESULT:
-The programs are executed successfully.
+## RESULTS:
+Hence, T flipflop using verilog and validating their functionality using their functional tables is implemented.
